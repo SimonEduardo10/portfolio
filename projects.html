@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title id="titulo-pagina">Projetos - Simon Eduardo Tsambe</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>Simon Eduardo Tsambe</h1>
+      <ul>
+        <li><a href="index.html" id="menu-home">Home</a></li>
+        <li><a href="about.html" id="menu-about">Sobre</a></li>
+        <li><a href="projects.html" id="menu-projects">Projetos</a></li>
+        <li><a href="contact.html" id="menu-contact">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Botões de idioma -->
+  <div class="language-switcher" style="text-align:center; margin: 10px 0;">
+    <button onclick="mudarIdioma('pt')">Português</button>
+    <button onclick="mudarIdioma('en')">English</button>
+    <button onclick="mudarIdioma('zh')">中文</button>
+  </div>
+
+  <section class="projects">
+    <h2 id="titulo-projetos">Meus Projetos</h2>
+
+    <div class="gallery">
+
+      <div class="card">
+        <img src="“O Futuro da Engenharia é Feminino”.png" alt="Projeto 1: Cartaz Promocional" class="img-projeto" />
+        <h3 id="proj1-titulo">Cartaz Promocional</h3>
+        <p id="proj1-texto">Design feito com Canva e editado no Photoshop.</p>
+      </div>
+
+      <div class="card">
+        <video src="copy_B8F89BEF-B259-470D-80F3-571FEF66F02F.MOV" controls></video>
+        <h3 id="proj2-titulo">Vídeo Institucional</h3>
+        <p id="proj2-texto">Projeto em grupo para apresentar uma empresa virtual.</p>
+      </div>
+
+      <div class="card">
+        <video src="simao.mp4" controls></video>
+        <h3 id="proj3-titulo">Animação 3D</h3>
+        <p id="proj3-texto">Modelagem feita no Cinema 4D. Efeito de iluminação e rotação.</p>
+      </div>
+
+      <div class="card">
+        <img src="aluno.jpg" alt="Portfólio Web" class="img-projeto" />
+        <h3 id="proj4-titulo">Mini Website</h3>
+        <p id="proj4-texto">Site feito com HTML, CSS e JavaScript puro.</p>
+      </div>
+
+      <div class="card">
+        <img src="WhatsApp Image 2024-11-27 at 16.24.32.jpeg" alt="minhas coisas" class="img-projeto" />
+        <h3 id="proj5-titulo">Minha carrinha quando não consigo nada</h3>
+        <p id="proj5-texto">Pinterest.</p>
+      </div>
+
+      <div class="card">
+        <img src="IMG-20211005-WA0068.jpg" alt="Projeto 1: outra minha coisa" class="img-projeto" />
+        <h3 id="proj6-titulo">Meu futuro carro</h3>
+        <p id="proj6-texto">Editado no Photoshop.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div id="modal-img" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img-ampliada" alt="Imagem ampliada">
+    <div id="caption"></div>
+  </div>
+
+  <script>
+    const modal = document.getElementById("modal-img");
+    const modalImg = document.getElementById("img-ampliada");
+    const captionText = document.getElementById("caption");
+    const closeBtn = document.getElementsByClassName("close")[0];
+    const imagens = document.querySelectorAll(".img-projeto");
+
+    imagens.forEach(img => {
+      img.onclick = function () {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+      }
+    });
+
+    closeBtn.onclick = function () {
+      modal.style.display = "none";
+    }
+
+    modal.onclick = function (event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+  <footer>
+    <p id="direitos">© 2025 Simon Tsambe. Todos os direitos reservados.</p>
+    <div class="redes-sociais">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+    </div>
+  </footer>
+
+  <script src="idioma.js"></script>
+</body>
+</html>

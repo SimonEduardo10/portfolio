@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title id="titulo-pagina">Sobre - Simon Eduardo Tsambe</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>Simon Tsambe</h1>
+      <ul>
+        <li><a href="index.html" id="menu-home">Home</a></li>
+        <li><a href="about.html" id="menu-about">Sobre</a></li>
+        <li><a href="projects.html" id="menu-projects">Projetos</a></li>
+        <li><a href="contact.html" id="menu-contact">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  
+  <div class="language-switcher" style="text-align: center; margin-top: 10px;">
+    <button onclick="mudarIdioma('pt')">Português</button>
+    <button onclick="mudarIdioma('en')">English</button>
+    <button onclick="mudarIdioma('zh')">中文</button>
+  </div>
+
+  <section class="sobre">
+    <div class="sobre-conteudo">
+      <div class="foto-perfil">
+        <img src="Simon.jpeg" alt="Foto de Simon Tsambe">
+      </div>
+    <h2 id="titulo-sobre">Sobre Mim</h2>
+      <div class="bio-card">
+        <i class="fas fa-user"></i>
+        <h3 id="titulo-filiacao">Filiação</h3>
+        <p id="texto-filiacao">Nome completo: Simon Eduardo Tsambe<br>Idade: 21 anos<br>Pai: Eduardo Tsambe<br>Mãe: Laura Tsambe</p>
+      </div>
+
+      <div class="bio-card">
+        <i class="fas fa-graduation-cap"></i>
+        <h3 id="titulo-formacao">Formação</h3>
+        <p id="texto-formacao">Licenciatura em Informática<br>Universidade Técnica Diogo Eugénio Guilande - 3º Ano</p>
+      </div>
+
+      <div class="bio-card">
+        <i class="fas fa-briefcase"></i>
+        <h3 id="titulo-projetos">Projectos</h3>
+        <p id="texto-projetos">Desenvolvimento de sistemas Web, design de portfólios, animações com CSS e JavaScript.</p>
+      </div>
+
+      <div class="bio-card">
+        <i class="fas fa-laptop"></i>
+        <h3 id="titulo-skills-it">Skills de IT</h3>
+        <p id="texto-skills-it">HTML5, CSS3, JavaScript, Bootstrap, Git, VS Code, manutenção de computadores.</p>
+      </div>
+
+      <div class="bio-card">
+        <i class="fas fa-language"></i>
+        <h3 id="titulo-linguas">Skills Linguísticos</h3>
+        <p id="texto-linguas">Português (fluente), Inglês (básico-técnico).</p>
+      </div>
+
+      <div class="bio-card">
+        <i class="fas fa-star"></i>
+        <h3 id="titulo-interesses">Interesses</h3>
+        <p id="texto-interesses">Programação, design gráfico, edição de vídeos, inovação tecnológica.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p id="direitos">© 2025 Simon Tsambe. Todos os direitos reservados.</p>
+    <div class="redes-sociais">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+    </div>
+  </footer>
+
+  <script src="idioma.js"></script>
+</body>
+</html>

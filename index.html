@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simon Eduardo Tsambe | Portfólio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>Simon Eduardo Tsambe</h1>
+      <ul>
+        <li><a href="index.html" id="menu-home">Home</a></li>
+        <li><a href="about.html" id="menu-about">Sobre</a></li>
+        <li><a href="projects.html" id="menu-projects">Projetos</a></li>
+        <li><a href="contact.html" id="menu-contact">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="language-switcher" style="text-align: center; margin-top: 10px;">
+    <button onclick="mudarIdioma('pt')">Português</button>
+    <button onclick="mudarIdioma('en')">English</button>
+    <button onclick="mudarIdioma('zh')">中文</button>
+  </div>
+
+  <section class="home">
+    <div class="perfil">
+      <img src="Simon.jpeg" alt="Foto de perfil">
+      <h2 id="nome">Simon Eduardo Tsambe</h2>
+      <p class="slogan" id="slogan">Desenvolvedor Web & Técnico em Informática</p>
+    </div>
+
+    <div class="skills-icons">
+      <i class="fas fa-laptop-code" title="Desenvolvimento Web"></i>
+      <i class="fas fa-paint-brush" title="Design Gráfico"></i>
+      <i class="fas fa-tools" title="Manutenção Técnica"></i>
+    </div>
+  </section>
+
+  <section class="noticias">
+    <h3 id="titulo-noticias">Últimas Notícias</h3>
+    <div class="scroll-area">
+      <div class="scroll-container">
+        <article>
+          <h4 id="noticia1-titulo">Simon lança novo curso de desenvolvimento web</h4>
+          <p id="noticia1-conteudo">Agora você pode aprender programação comigo no curso online gratuito! Confira no link <a href="#">aqui</a>.</p>
+          <small id="noticia1-data">Publicado em 20 de junho de 2025</small>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="anuncios">
+    <h3 id="titulo-anuncios">Anúncios</h3>
+    <p id="anuncio1">📢 Estou com vagas abertas para freelance em desenvolvimento web e consultoria técnica. Entre em contato!</p>
+  </section>
+
+  <section class="depoimentos">
+    <h3 id="titulo-depoimentos">O que dizem sobre mim</h3>
+
+    <blockquote>
+      <img src="do cliente.jpg" alt="Foto Cliente Satisfeito">
+      <div>
+        <p id="depoimento1">"O Simon é um profissional dedicado e muito competente. Recomendo seus serviços a todos!"</p>
+        <footer>— Cliente Satisfeito</footer>
+      </div>
+    </blockquote>
+
+    <blockquote>
+      <img src="aluno.jpg" alt="Foto Aluno Online">
+      <div>
+        <p id="depoimento2">"Aprendi muito com os cursos do Simon, conteúdo claro e didático."</p>
+        <footer>— Aluno Online</footer>
+      </div>
+    </blockquote>
+  </section>
+
+  <footer>
+    <p id="direitos">© 2025 Simon Tsambe. Todos os direitos reservados.</p>
+    <div class="redes-sociais">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+    </div>
+  </footer>
+
+  
+  <script src="idioma.js"></script>
+</body>
+</html>
