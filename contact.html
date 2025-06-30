@@ -7,6 +7,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <script defer src="script.js"></script> 
+<script type="text/javascript">
+  (function(){
+    emailjs.init("sKF9BfXFKP5q-2mHh"); 
+  })();
+</script>
+
+
 </head>
 <body>
   <header>
@@ -24,7 +31,7 @@
   <section class="contato">
     <h2 id="titulo-contato">Entre em Contato</h2>
 
-    <form class="formulario">
+    <form id="form-contato" class="formulario">
       <label for="nome" id="label-nome">Nome</label>
       <input type="text" id="nome" name="nome" required>
 
@@ -32,7 +39,16 @@
       <input type="email" id="email" name="email" required>
 
       <label for="assunto" id="label-assunto">Assunto</label>
-      <input type="text" id="assunto" name="assunto" required>
+    <select id="assunto" name="assunto" required>
+    <option value="" disabled selected>Selecione um assunto</option>
+    <option value="Pedido de orçamento">Pedido de orçamento</option>
+    <option value="Dúvida sobre serviços">Dúvida sobre serviços</option>
+    <option value="Sugestão para o site">Sugestão para o site</option>
+    <option value="Reclamação">Reclamação</option>
+    <option value="Parceria">Parceria</option>
+    <option value="Outro">Outro</option>
+   </select>
+
 
       <label for="mensagem" id="label-mensagem">Mensagem</label>
       <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
@@ -50,5 +66,40 @@
       <a href="#"><i class="fab fa-github"></i></a>
     </div>
   </footer>
+  
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  
+  (function () {
+    emailjs.init("sKF9BfXFKP5q-2mHh");
+  })();
+
+  document.getElementById("form-contato").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    
+    emailjs.sendForm("service_godbadw", "template_4k7ymrq", this)
+
+      .then(function () {
+        alert("✅ Mensagem enviada com sucesso por e-mail!");
+      }, function (error) {
+        alert("❌ Erro ao enviar: " + JSON.stringify(error));
+      });
+
+ 
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const assunto = document.getElementById("assunto").value;
+    const mensagem = document.getElementById("mensagem").value;
+
+    const texto = `Nova mensagem do site:%0A%0A👤 Nome: ${nome}%0A📧 Email: ${email}%0A📌 Assunto: ${assunto}%0A📝 Mensagem: ${mensagem}`;
+    const numero = "258877568563";  
+
+    
+    window.open(`https://wa.me/${numero}?text=${texto}`, "_blank");
+  });
+</script>
+
+
 </body>
 </html>
