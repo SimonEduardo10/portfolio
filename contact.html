@@ -69,36 +69,68 @@
   
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-  
   (function () {
     emailjs.init("sKF9BfXFKP5q-2mHh");
   })();
 
-  document.getElementById("form-contato").addEventListener("submit", function (e) {
+  const formulario = document.getElementById("form-contato");
+  const modal = document.getElementById("modal-envio");
+
+  let dadosFormulario = {};
+
+  formulario.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    
-    emailjs.sendForm("service_godbadw", "template_4k7ymrq", this)
+    // Armazena os dados do formulário
+    dadosFormulario = {
+      nome: document.getElementById("nome").value,
+      email: document.getElementById("email").value,
+      assunto: document.getElementById("assunto").value,
+      mensagem: document.getElementById("mensagem").value,
+      form: this
+    };
 
-      .then(function () {
-        alert("✅ Mensagem enviada com sucesso por e-mail!");
-      }, function (error) {
-        alert("❌ Erro ao enviar: " + JSON.stringify(error));
-      });
-
- 
-    const nome = document.getElementById("nome").value;
-    const email = document.getElementById("email").value;
-    const assunto = document.getElementById("assunto").value;
-    const mensagem = document.getElementById("mensagem").value;
-
-    const texto = `Nova mensagem do site:%0A%0A👤 Nome: ${nome}%0A📧 Email: ${email}%0A📌 Assunto: ${assunto}%0A📝 Mensagem: ${mensagem}`;
-    const numero = "258877568563";  
-
-    
-    window.open(`https://wa.me/${numero}?text=${texto}`, "_blank");
+    modal.style.display = "block";
   });
+
+  document.getElementById("enviar-email").onclick = function () {
+    emailjs.sendForm("service_godbadw", "template_4k7ymrq", dadosFormulario.form)
+      .then(() => {
+        alert("✅ Mensagem enviada por e-mail!");
+        modal.style.display = "none";
+        dadosFormulario.form.reset();
+      })
+      .catch(error => {
+        alert("❌ Erro ao enviar por e-mail: " + JSON.stringify(error));
+        modal.style.display = "none";
+      });
+  };
+
+  document.getElementById("enviar-whatsapp").onclick = function () {
+    const texto = `Nova mensagem do site:%0A%0A👤 Nome: ${dadosFormulario.nome}%0A📧 Email: ${dadosFormulario.email}%0A📌 Assunto: ${dadosFormulario.assunto}%0A📝 Mensagem: ${dadosFormulario.mensagem}`;
+    const numero = "258877568563";
+    window.open(`https://wa.me/${numero}?text=${texto}`, "_blank");
+    modal.style.display = "none";
+  };
+
+  document.getElementById("cancelar").onclick = function () {
+    modal.style.display = "none";
+  };
 </script>
+
+
+
+<div id="modal-envio" class="modal">
+  <div class="modal-conteudo">
+    <h3>Deseja enviar por?</h3>
+    <div class="botoes-envio">
+      <button id="enviar-email">Email</button>
+      <button id="enviar-whatsapp">WhatsApp</button>
+      <button id="cancelar">Cancelar</button>
+    </div>
+  </div>
+</div>
+
 
 
 </body>
