@@ -64,58 +64,39 @@
       <a href="#"><i class="fab fa-github"></i></a>
     </div>
   </footer>
-  
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
   (function () {
     emailjs.init("sKF9BfXFKP5q-2mHh");
   })();
 
-  const formulario = document.getElementById("form-contato");
-  const modal = document.getElementById("modal-envio");
-
-  let dadosFormulario = {};
-
-  formulario.addEventListener("submit", function (e) {
+  document.getElementById("form-contato").addEventListener("submit", function (e) {
     e.preventDefault();
 
-    // Armazena os dados do formulário
-    dadosFormulario = {
-      nome: document.getElementById("nome").value,
-      email: document.getElementById("email").value,
-      assunto: document.getElementById("assunto").value,
-      mensagem: document.getElementById("mensagem").value,
-      form: this
-    };
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const assunto = document.getElementById("assunto").value;
+    const mensagem = document.getElementById("mensagem").value;
 
-    modal.style.display = "block";
-  });
-
-  document.getElementById("enviar-email").onclick = function () {
-    emailjs.sendForm("service_godbadw", "template_4k7ymrq", dadosFormulario.form)
-      .then(() => {
-        alert("✅ Mensagem enviada por e-mail!");
-        modal.style.display = "none";
-        dadosFormulario.form.reset();
-      })
-      .catch(error => {
-        alert("❌ Erro ao enviar por e-mail: " + JSON.stringify(error));
-        modal.style.display = "none";
-      });
-  };
-
-  document.getElementById("enviar-whatsapp").onclick = function () {
-    const texto = `Nova mensagem do site:%0A%0A👤 Nome: ${dadosFormulario.nome}%0A📧 Email: ${dadosFormulario.email}%0A📌 Assunto: ${dadosFormulario.assunto}%0A📝 Mensagem: ${dadosFormulario.mensagem}`;
+    const texto = `Nova mensagem do site:%0A%0A👤 Nome: ${nome}%0A📧 Email: ${email}%0A📌 Assunto: ${assunto}%0A📝 Mensagem: ${mensagem}`;
     const numero = "258877568563";
-    window.open(`https://wa.me/${numero}?text=${texto}`, "_blank");
-    modal.style.display = "none";
-  };
 
-  document.getElementById("cancelar").onclick = function () {
-    modal.style.display = "none";
-  };
+    const escolha = confirm("Deseja enviar por Email?\nClique em 'OK' para Email ou 'Cancelar' para WhatsApp.");
+
+    if (escolha) {
+      // Enviar por Email
+      emailjs.sendForm("service_godbadw", "template_4k7ymrq", this)
+        .then(function () {
+          alert("✅ Mensagem enviada por e-mail!");
+        }, function (error) {
+          alert("❌ Erro ao enviar por e-mail: " + JSON.stringify(error));
+        });
+    } else {
+      // Enviar por WhatsApp
+      window.open(`https://wa.me/${numero}?text=${texto}`, "_blank");
+    }
+  });
 </script>
-
 
 
 <div id="modal-envio" class="modal">
